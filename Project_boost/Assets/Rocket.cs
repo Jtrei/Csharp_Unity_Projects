@@ -1,14 +1,20 @@
-﻿using System;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Rocket : MonoBehaviour
 {
+    [SerializeField] float rcsThrust = 100f; // Adds to inspector
+    [SerializeField] float mainThrust = 100f;
 
     Rigidbody rigidBody;
     AudioSource audioSource;
     // Start is called before the first frame update
+
+    enum State {Alive, Dead, Transcending,}
+    State state = State.Alive;
 
     void Start()
     {
@@ -20,24 +26,64 @@ public class Rocket : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        ProcessInput();
+        if (state == State.Alive){
+        Rotate();
+        Thrust();
+        }
     }
 
-    private void ProcessInput(){
-        if (Input.GetKey(KeyCode.Space)) {
-            print("Thrusting");
-            rigidBody.AddRelativeForce(Vector3.up);
-            audioSource.Play(); 
-        } else {
-            audioSource.Pause();
-        }
+    private void Rotate (){
+
+        rigidBody.freezeRotation = true; // halt physical control, allow manual control
+        float rotationThisFrame = rcsThrust * Time.deltaTime;
 
         if (Input.GetKey(KeyCode.A)) {
-            print("Rotating left");
-            transform.Rotate(Vector3.forward);
+            transform.Rotate(Vector3.forward * rotationThisFrame);
         } else if (Input.GetKey(KeyCode.D)) {
-            print("Rotating right");
-            transform.Rotate(Vector3.back);
+            transform.Rotate(-Vector3.forward * rotationThisFrame);
         } 
+
+        rigidBody.freezeRotation = false; // resume physics control
+    }
+
+    void OnCollisionEnter(Collision collision){
+        if (state != State.Alive) {return;}
+        switch (collision.gameObject.tag){
+            case "Friendly":
+                break;
+            case "Finish":
+                print("Hit Finish");
+                state = State.Transcending;
+                Invoke("LoadNextScene", 1f); // parameterize time
+                break;
+            default:
+                print("Hit Dead");
+                state = State.Dead;
+                Invoke("LoadNextScene", 1f); // parameterize time
+                break;
+        }
+    }
+
+    private void LoadNextScene(){
+
+        if (state == State.Transcending) {
+            SceneManager.LoadScene(1);
+        } else {
+            SceneManager.LoadScene(0);
+        }
+    }
+
+    private void Thrust(){
+        float thrustThisFrame = mainThrust * Time.deltaTime;
+
+        if (Input.GetKey(KeyCode.Space)) {
+            rigidBody.AddRelativeForce(Vector3.up * thrustThisFrame);
+            if (!audioSource.isPlaying) {
+                audioSource.Play(); 
+            }
+        } else {
+            audioSource.Stop();
+        }
     }
 }
+
