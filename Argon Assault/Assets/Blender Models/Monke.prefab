@@ -1,0 +1,109 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-1706465304201066803
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2145465246372713073}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9b403fecb898a8e93a1b1eb03ea49fea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  deathFX: {fileID: 4754747618245434657, guid: 8d6846aaf92fbb186917281e2f2c9a3a, type: 3}
+  health: 25
+  parent: {fileID: 0}
+--- !u!114 &-227787814416078386
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2145465246372713073}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 762b43a2a15cc8cee8c7dedc19cef64e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!1001 &1227038036642033440
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: -8679921383154817045, guid: 469e4b11f2af991109cf5c60c2989770,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 489.1
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 469e4b11f2af991109cf5c60c2989770,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 43.57715
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 469e4b11f2af991109cf5c60c2989770,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 162.4
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 469e4b11f2af991109cf5c60c2989770,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.00000003737884
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 469e4b11f2af991109cf5c60c2989770,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0.5646609
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 469e4b11f2af991109cf5c60c2989770,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0.000000005273262
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 469e4b11f2af991109cf5c60c2989770,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.82532305
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 469e4b11f2af991109cf5c60c2989770,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 469e4b11f2af991109cf5c60c2989770,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 469e4b11f2af991109cf5c60c2989770,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: -68.758
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 469e4b11f2af991109cf5c60c2989770,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 469e4b11f2af991109cf5c60c2989770,
+        type: 3}
+      propertyPath: m_Name
+      value: Enemy_2
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 469e4b11f2af991109cf5c60c2989770,
+        type: 3}
+      propertyPath: m_TagString
+      value: Enemy
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 469e4b11f2af991109cf5c60c2989770, type: 3}
+--- !u!1 &2145465246372713073 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 469e4b11f2af991109cf5c60c2989770,
+    type: 3}
+  m_PrefabInstance: {fileID: 1227038036642033440}
+  m_PrefabAsset: {fileID: 0}

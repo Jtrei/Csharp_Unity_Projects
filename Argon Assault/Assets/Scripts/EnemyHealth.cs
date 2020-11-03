@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 public class EnemyHealth : MonoBehaviour{
   
   [SerializeField] GameObject deathFX;
-  [SerializeField] int health = 15; 
+  [SerializeField] int health = 5; 
   [SerializeField] Transform parent;
 
 
@@ -15,7 +15,7 @@ public class EnemyHealth : MonoBehaviour{
       if (health == 0){
         VisualEffects();
         print("Enemy Destroyed!");
-        Invoke("EnemyDestroyed", 1);
+        Invoke("EnemyDestroyed", 0.5f);
       }
     }
 
